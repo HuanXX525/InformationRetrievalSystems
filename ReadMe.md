@@ -19,4 +19,4 @@
 
 ## 方案设计
 
-![架构图](aefcbc195f12059f0a07473d27da4c5e.png)
+![架构图](./res/aefcbc195f12059f0a07473d27da4c5e.png)
