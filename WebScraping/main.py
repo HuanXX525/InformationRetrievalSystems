@@ -122,11 +122,12 @@ if response.status_code == 200:
                             caption = caption_node.get_text(strip=True) if caption_node else ""
                             
                             # 将图片信息转化为文本存储，确保 RAG 系统知道这里有一张图 
-                            content_segments.append(f"【图片：{alt_text}。图注：{caption}。链接：{img_url}】")
+                            content_segments.append(f"<Picture, {alt_text} note:{caption}, URL:{img_url}>")
 
                 # 4. 构造结构化文档对象
                 if content_segments:
                     document = {
+                        "ID": f"CUDA_PROGRAM_GUIDE_{len(document_list)}",
                         "title": doc_title,
                         "url": urljoin(CUDA.URL, episode.url) + f"#{section.get('id', '')}",
                         "content": "\n\n".join(content_segments),
